@@ -6,7 +6,7 @@ The sender fits the image to **300 × 400 portrait**, preserves its proportions,
 
 This project was built and tested on **Fedora 44**, an **ESP32-C3**, and the **WeAct Studio 4.2-inch black-and-white SPI e-paper module**. WeAct's [example identifies this panel](https://github.com/WeActStudio/WeActStudio.EpaperModule/blob/master/Example/EpaperModuleTest_Arduino_ESP32/EpaperModuleTest_Arduino_ESP32.ino) as 400 × 300 using `GxEPD2_420_GDEY042T81`. The firmware rotates that physical panel to show 300 × 400 images.
 
-## 1. Install Fedora packages (about 2 minutes)
+## 1. Install Fedora packages
 
 ```sh
 sudo dnf install git platformio python3-pillow nautilus-python
@@ -14,7 +14,7 @@ sudo dnf install git platformio python3-pillow nautilus-python
 
 Clone or download this repository and open a terminal in its directory. GNOME Files (Nautilus) is required for the right-click menu. The command-line sender works without Nautilus.
 
-## 2. Wire the display (about 10 minutes)
+## 2. Wire the display
 
 Connect the display module to the ESP32-C3 using these **GPIO numbers**. They are not physical header positions. Set `EPD_SCK` and `EPD_MOSI` in the config file if your wiring uses different pins.
 
@@ -29,7 +29,7 @@ Connect the display module to the ESP32-C3 using these **GPIO numbers**. They ar
 
 Connect VCC and GND according to your module's markings. This project targets the black-and-white module; a color or different-size panel needs a matching GxEPD2 driver and image format.
 
-## 3. Set Wi-Fi and flash (about 5 minutes)
+## 3. Set Wi-Fi and flash 
 
 ```sh
 cp include/config.example.h include/config.h
@@ -49,7 +49,7 @@ pio run -t upload
 
 If PlatformIO cannot find the board, run `pio device list` and use its port, for example `pio run -t upload --upload-port /dev/ttyACM0`. The project enables USB serial logging for ESP32-C3 boards with native USB. `pio device monitor -b 115200` can show the ESP's IP address after it connects.
 
-## 4. Configure the sender (about 2 minutes)
+## 4. Configure the sender 
 
 ```sh
 cp sender/config.example.json sender/config.json
